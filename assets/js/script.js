@@ -206,11 +206,16 @@ function displayCorrectOption(currentQuestion) {
     }
 }
 
+function incrementScore() {
+    let userScore = document.getElementById("user-score").innerText
+    document.getElementById("user-score").innerText = userScore++;
+}
 
 /**
 1. Restart button appears when all questions in the array have been answered.
 2. When clicked, the function resets the user score and question index
 3. Displays question area again and hides the other elements,
+
 **/
 function onRestartQuiz() {
     startQuiz.classList.add("hide");
