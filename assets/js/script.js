@@ -142,6 +142,15 @@ function displayQuestion() {
     answerTwo.innerText = currentQuestion.option2
     answerThree.innerText = currentQuestion.option3
     answerFour.innerText = currentQuestion.option4
+    toggleNextButton(true);
+}
+
+function toggleNextButton(hide) {
+    if (hide) {
+        nextQuestion.classList.add("hide");
+    } else {
+        nextQuestion.classList.remove("hide");
+    }
 }
 
 /**
