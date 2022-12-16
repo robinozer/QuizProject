@@ -102,22 +102,10 @@ let currentQuestion = 0;
 let userAnswer = null;
 
 
-// create event listeners for buttons
-
-startQuiz.addEventListener("click", onStartQuiz);
-restartQuiz.addEventListener("click", onRestartQuiz);
-submitButton.addEventListener("click", onUserSubmit);
-nextQuestion.addEventListener("click", onUserClickNextButton);
-answers.addEventListener("click", onUserSelection);
-
-// write functions for each
-
-/**  
- 1. Hide nav buttons when quiz starts and show question area
- 2. Fetch current question from questions index array
- 3. Set the question span text to question key
- 4. Fetch answer options and set each */
-
+/**
+ When content is loaded, connected to DOMContentLoaded
+ event listeners for buttons
+ */
 function initializeQuiz() {
     startQuiz.addEventListener("click", onStartQuiz);
     restartQuiz.addEventListener("click", onRestartQuiz);
@@ -128,14 +116,26 @@ function initializeQuiz() {
     });
 
 }
-
+/**  
+ 1. Hide nav buttons when quiz starts and show question area
+ 2. Fetch current question from questions index array
+ 3. Set the question span text to question key
+ 4. Fetch answer options and set each */
 function onStartQuiz(event) {
     startQuiz.classList.add("hide");
     questionArea.classList.remove("hide");
     nextQuestion.classList.add("hide");
     submitButton.classList.remove("hide");
     scoreArea.classList.remove("hide");
+    displayQuestion();
+}
 
+function displayQuestion() {
+    clearSelectionOfOptions();
+    if (questionIndex == QUESTIONS.length) {
+        //display the final score
+        // hide the quiz area
+    }
     let currentQuestion = QUESTIONS[questionIndex];
     questionInnerText.innerText = currentQuestion.question
     answerOne.innerText = currentQuestion.option1
