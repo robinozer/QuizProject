@@ -193,6 +193,20 @@ function onUserSubmit(event) {
     displayCorrectOption(currentQuestion)
 }
 
+function displayCorrectOption(currentQuestion) {
+    let correctOption = currentQuestion.correctOption
+    if (correctOption == 4) {
+        answerFour.classList.add("correct-option")
+    } else if (correctOption == 3) {
+        answerThree.classList.add("correct-option")
+    } else if (correctOption == 2) {
+        answerTwo.classList.add("correct-option")
+    } else (correctOption == 1) {
+        answerOne.classList.add("correct-option")
+    }
+}
+
+
 /**
 1. Restart button appears when all questions in the array have been answered.
 2. When clicked, the function resets the user score and question index
