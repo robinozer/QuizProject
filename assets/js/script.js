@@ -140,8 +140,8 @@ function onUserSelection(event) {
 4. Show next button
 **/
 function onUserSubmit() {
-nextQuestion.classList.remove("hide");
-let currentQuestion= QUESTIONS[questionIndex];
+    nextQuestion.classList.remove("hide");
+    let currentQuestion = QUESTIONS[questionIndex];
 }
 
 /**
@@ -150,13 +150,17 @@ let currentQuestion= QUESTIONS[questionIndex];
 3. Displays question area again and hides the other elements,
 **/
 function onRestartQuiz() {
-	startQuiz.classList.add("hide");
-  restartQuiz.classList.add("hide");
-  questionArea.classList.remove("hide");
+    startQuiz.classList.add("hide");
+    restartQuiz.classList.add("hide");
+    questionArea.classList.remove("hide");
 }
 
-
+/**
+1. Next button shows up after user clicks Submit button
+2. Load next set of question and answer from question Index
+3. When quiz has run through all questions, next button is hidden
+**/
 function onUserClickNextButton() {
     questionIndex++;
     displayQuestion();
-   }
+}
