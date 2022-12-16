@@ -90,3 +90,9 @@ let QUESTIONS = [{
         correctAnswer: "Sultan Mehmed II"
     },
 ]
+
+startQuiz.addEventListener("click", onStartQuiz);
+restartQuiz.addEventListener("click", onRestartQuiz);
+submitButton.addEventListener("click", onUserSubmit);
+nextQuestion.addEventListener("click", onUserClickNextButton);
+answers.addEventListener("click", onUserSelection);
