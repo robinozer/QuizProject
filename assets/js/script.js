@@ -168,6 +168,15 @@ function toggleOptions(disableOptions) {
 **/
 function onUserSelection(event) {
     userAnswer = event.target.innerText
+    clearSelectionOfOptions();
+    event.target.classList.add("user-selection");
+}
+
+function clearSelectionOfOptions() {
+    Array.from(answers).forEach(function(element) {
+    element.classList.remove("user-selection");
+    element.classList.remove("correct-option");
+    });
 }
 
 /**
