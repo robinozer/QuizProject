@@ -27,6 +27,8 @@ let questionIndex = 0;
 let currentQuestion = 0;
 let userAnswer = null;
 
+// Create array of quiz questions and answer options
+
 let QUESTIONS = [{
         question: "What country has the highest life expectancy?",
         option1: "Spain",
@@ -91,8 +93,40 @@ let QUESTIONS = [{
     },
 ]
 
+// create event listeners for buttons
+
 startQuiz.addEventListener("click", onStartQuiz);
 restartQuiz.addEventListener("click", onRestartQuiz);
 submitButton.addEventListener("click", onUserSubmit);
 nextQuestion.addEventListener("click", onUserClickNextButton);
 answers.addEventListener("click", onUserSelection);
+
+// write functions for each
+
+function onStartQuiz(event) {
+    startQuiz.classList.add("hide");
+    questionArea.classList.remove("hide");
+    nextQuestion.classList.add("hide");
+    submitButton.classList.remove("hide");
+    scoreArea.classList.remove("hide");
+
+    let currentQuestion = QUESTIONS[questionIndex];
+    questionInnerText.innerText = currentQuestion.question
+    answerOne.innerText = currentQuestion.option1
+    answerTwo.innerText = currentQuestion.option2
+    answerThree.innerText = currentQuestion.option3
+    answerFour.innerText = currentQuestion.option4
+
+/**
+1. When user clicks an answer option, the option stays green, 
+2. user´s answer in variable userAnswer
+**/
+function onUserSelection(event) {
+    userAnswer = event.target.innerText
+}
+
+function onUserSubmit()
+
+function onRestartQuiz()
+
+function onUserClickNextButton()
