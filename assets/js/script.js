@@ -7,6 +7,7 @@ let QUESTIONS = [{
     option3: "Japan",
     option4: "Hong Kong",
     correctAnswer: "Hong Kong",
+    correctOption: 4
 },
 
 {
@@ -16,6 +17,7 @@ let QUESTIONS = [{
     option3: "1945",
     option4: "1955",
     correctAnswer: "1945"
+    correctOption: 3
 },
 
 {
@@ -25,6 +27,7 @@ let QUESTIONS = [{
     option3: "Wakanda",
     option4: "South Africa",
     correctAnswer: "Tanzania"
+    correctOption: 1
 },
 
 {
@@ -34,6 +37,7 @@ let QUESTIONS = [{
     option3: "Havana, Cuba",
     option4: "Santo Domingo, Dominican Republic",
     correctAnswer: "Mexico City, Mexico"
+    correctOption: 2
 },
 
 {
@@ -43,6 +47,7 @@ let QUESTIONS = [{
     option3: "Cicero",
     option4: "Spartacus",
     correctAnswer: "Hannibal"
+    correctOption: 2
 },
 
 {
@@ -52,6 +57,7 @@ let QUESTIONS = [{
     option3: "Georgia",
     option4: "Turkey",
     correctAnswer: "Turkey"
+    correctOption: 4
 },
 
 {
@@ -61,6 +67,7 @@ let QUESTIONS = [{
     option3: "Sultan Mehmed II",
     option4: "Beyazit II",
     correctAnswer: "Sultan Mehmed II"
+    correctOption: 3
 },
 ]
 
