@@ -185,13 +185,12 @@ function clearSelectionOfOptions() {
 3. If else, alert user
 4. Show next button
 **/
-function onUserSubmit() {
-    nextQuestion.classList.remove("hide");
+function onUserSubmit(event) {
+    toggleOptions(true);
+    toggleNextButton(false);
+
     let currentQuestion = QUESTIONS[questionIndex];
-    if (userAnswer === correctAnswer) {
-
-    }
-
+    displayCorrectOption(currentQuestion)
 }
 
 /**
