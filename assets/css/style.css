@@ -1,0 +1,33 @@
+.hide {
+    display: none;
+}
+
+* {
+    font-family: "Source San Pro", sans-serif;
+    font-size: 22px;
+}
+
+body {
+    background-color: #002F47;
+    text-align: center;
+}
+
+#quiz-container {
+    background-color: #eee9d4;
+    padding: 10%;
+    border-radius: 15px;
+}
+
+#score-area {
+    color: #c6093b;
+}
+
+.button {
+    padding: 2%;
+    border-radius: 7px;
+    margin: 2%;
+}
+
+.button:hover {
+    background-color: #7ab66f;
+}
