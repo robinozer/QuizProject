@@ -1,3 +1,70 @@
+// Create array of quiz questions and answer options
+
+let QUESTIONS = [{
+    question: "What country has the highest life expectancy?",
+    option1: "Spain",
+    option2: "Norway",
+    option3: "Japan",
+    option4: "Hong Kong",
+    correctAnswer: "Hong Kong",
+},
+
+{
+    question: "What year was the United Nations established?",
+    option1: "1920",
+    option2: "1930",
+    option3: "1945",
+    option4: "1955",
+    correctAnswer: "1945"
+},
+
+{
+    question: "In what country would you find Mount Kilimanjaro?",
+    option1: "Tanzania",
+    option2: "Ghana",
+    option3: "Wakanda",
+    option4: "South Africa",
+    correctAnswer: "Tanzania"
+},
+
+{
+    question: "What is the largest Spanish-speaking city in the world?",
+    option1: "Barcelona, Spain",
+    option2: "Mexico City, Mexico",
+    option3: "Havana, Cuba",
+    option4: "Santo Domingo, Dominican Republic",
+    correctAnswer: "Mexico City, Mexico"
+},
+
+{
+    question: "Who famously crossed the Alps with elephants on the way to war with the Romans?",
+    option1: "Caesar",
+    option2: "Hannibal",
+    option3: "Cicero",
+    option4: "Spartacus",
+    correctAnswer: "Hannibal"
+},
+
+{
+    question: "In which country is the Armenian sacred mountain, mount Ararat, located?",
+    option1: "Armenia",
+    option2: "Iran",
+    option3: "Georgia",
+    option4: "Turkey",
+    correctAnswer: "Turkey"
+},
+
+{
+    question: "Which Sultan of the Ottoman Empire conquered Constantinople?",
+    option1: "Sultan Murad IV",
+    option2: "Suleiman the Magnificent",
+    option3: "Sultan Mehmed II",
+    option4: "Beyazit II",
+    correctAnswer: "Sultan Mehmed II"
+},
+]
+
+
 // create variables matching the order of the HTML doc
 
 let startQuiz = document.getElementById("start");
@@ -27,71 +94,6 @@ let questionIndex = 0;
 let currentQuestion = 0;
 let userAnswer = null;
 
-// Create array of quiz questions and answer options
-
-let QUESTIONS = [{
-        question: "What country has the highest life expectancy?",
-        option1: "Spain",
-        option2: "Norway",
-        option3: "Japan",
-        option4: "Hong Kong",
-        correctAnswer: "Hong Kong",
-    },
-
-    {
-        question: "What year was the United Nations established?",
-        option1: "1920",
-        option2: "1930",
-        option3: "1945",
-        option4: "1955",
-        correctAnswer: "1945"
-    },
-
-    {
-        question: "In what country would you find Mount Kilimanjaro?",
-        option1: "Tanzania",
-        option2: "Ghana",
-        option3: "Wakanda",
-        option4: "South Africa",
-        correctAnswer: "Tanzania"
-    },
-
-    {
-        question: "What is the largest Spanish-speaking city in the world?",
-        option1: "Barcelona, Spain",
-        option2: "Mexico City, Mexico",
-        option3: "Havana, Cuba",
-        option4: "Santo Domingo, Dominican Republic",
-        correctAnswer: "Mexico City, Mexico"
-    },
-
-    {
-        question: "Who famously crossed the Alps with elephants on the way to war with the Romans?",
-        option1: "Caesar",
-        option2: "Hannibal",
-        option3: "Cicero",
-        option4: "Spartacus",
-        correctAnswer: "Hannibal"
-    },
-
-    {
-        question: "In which country is the Armenian sacred mountain, mount Ararat, located?",
-        option1: "Armenia",
-        option2: "Iran",
-        option3: "Georgia",
-        option4: "Turkey",
-        correctAnswer: "Turkey"
-    },
-
-    {
-        question: "Which Sultan of the Ottoman Empire conquered Constantinople?",
-        option1: "Sultan Murad IV",
-        option2: "Suleiman the Magnificent",
-        option3: "Sultan Mehmed II",
-        option4: "Beyazit II",
-        correctAnswer: "Sultan Mehmed II"
-    },
-]
 
 // create event listeners for buttons
 
@@ -108,6 +110,17 @@ answers.addEventListener("click", onUserSelection);
  2. Fetch current question from questions index array
  3. Set the question span text to question key
  4. Fetch answer options and set each */
+
+function initializeQuiz() {
+    startQuiz.addEventListener("click", onStartQuiz);
+    restartQuiz.addEventListener("click", onRestartQuiz);
+    submitButton.addEventListener("click", onUserSubmit);
+    nextQuestion.addEventListener("click", onUserClickNextButton);
+    Array.from(answers).forEach(function(element) {
+    element.addEventListener("click", onUserSelection);
+    });
+
+}
 
 function onStartQuiz(event) {
     startQuiz.classList.add("hide");
@@ -142,6 +155,10 @@ function onUserSelection(event) {
 function onUserSubmit() {
     nextQuestion.classList.remove("hide");
     let currentQuestion = QUESTIONS[questionIndex];
+    if (userAnswer === correctAnswer) {
+
+    }
+
 }
 
 /**
@@ -164,3 +181,5 @@ function onUserClickNextButton() {
     questionIndex++;
     displayQuestion();
 }
+
+window.addEventListener('DOMContentLoaded', initializeQuiz);
