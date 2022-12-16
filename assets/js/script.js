@@ -142,6 +142,7 @@ function displayQuestion() {
     answerTwo.innerText = currentQuestion.option2
     answerThree.innerText = currentQuestion.option3
     answerFour.innerText = currentQuestion.option4
+    toggleOptions(false);
     toggleNextButton(true);
 }
 
@@ -151,6 +152,13 @@ function toggleNextButton(hide) {
     } else {
         nextQuestion.classList.remove("hide");
     }
+}
+
+function toggleOptions(disableOptions) {
+    answerOne.disabled = disableOptions;
+    answerTwo.disabled = disableOptions;
+    answerThree.disabled = disableOptions;
+    answerFour.disabled = disableOptions;
 }
 
 /**
