@@ -103,6 +103,12 @@ answers.addEventListener("click", onUserSelection);
 
 // write functions for each
 
+/**  
+ 1. Hide nav buttons when quiz starts and show question area
+ 2. Fetch current question from questions index array
+ 3. Set the question span text to question key
+ 4. Fetch answer options and set each */
+
 function onStartQuiz(event) {
     startQuiz.classList.add("hide");
     questionArea.classList.remove("hide");
@@ -116,17 +122,41 @@ function onStartQuiz(event) {
     answerTwo.innerText = currentQuestion.option2
     answerThree.innerText = currentQuestion.option3
     answerFour.innerText = currentQuestion.option4
+}
 
 /**
-1. When user clicks an answer option, the option stays green, 
-2. user´s answer in variable userAnswer
+1. When user clicks an answer option, 
+    the clicked option stays green until changed or submitted
+2. user´s answer stored in variable userAnswer
 **/
 function onUserSelection(event) {
     userAnswer = event.target.innerText
 }
 
-function onUserSubmit()
+/**
+1. Compare the value of the submitted answer to correctAnswer
+2. If answer is correct, alert user and increment userScore with 1
+3. If else, alert user
+4. Show next button
+**/
+function onUserSubmit() {
+nextQuestion.classList.remove("hide");
+let currentQuestion= QUESTIONS[questionIndex];
+}
 
-function onRestartQuiz()
+/**
+1. Restart button appears when all questions in the array have been answered.
+2. When clicked, the function resets the user score and question index
+3. Displays question area again and hides the other elements,
+**/
+function onRestartQuiz() {
+	startQuiz.classList.add("hide");
+  restartQuiz.classList.add("hide");
+  questionArea.classList.remove("hide");
+}
 
-function onUserClickNextButton()
+
+function onUserClickNextButton() {
+    questionIndex++;
+    displayQuestion();
+   }
