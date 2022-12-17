@@ -71,8 +71,7 @@ let QUESTIONS = [{
 },
 ]
 
-
-// create variables matching the order of the HTML doc
+// create variables retrieving the DOM elements 
 
 let startQuiz = document.getElementById("start");
 let submitButton = document.getElementById("submit");
@@ -159,6 +158,7 @@ function toggleOptions(disableOptions) {
     answerTwo.disabled = disableOptions;
     answerThree.disabled = disableOptions;
     answerFour.disabled = disableOptions;
+    submitButton.disabled = disableOptions;
 }
 
 /**
