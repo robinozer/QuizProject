@@ -16,7 +16,7 @@ let QUESTIONS = [{
     option2: "1930",
     option3: "1945",
     option4: "1955",
-    correctAnswer: "1945"
+    correctAnswer: "1945",
     correctOption: 3
 },
 
@@ -26,7 +26,7 @@ let QUESTIONS = [{
     option2: "Ghana",
     option3: "Wakanda",
     option4: "South Africa",
-    correctAnswer: "Tanzania"
+    correctAnswer: "Tanzania",
     correctOption: 1
 },
 
@@ -36,7 +36,7 @@ let QUESTIONS = [{
     option2: "Mexico City, Mexico",
     option3: "Havana, Cuba",
     option4: "Santo Domingo, Dominican Republic",
-    correctAnswer: "Mexico City, Mexico"
+    correctAnswer: "Mexico City, Mexico",
     correctOption: 2
 },
 
@@ -46,7 +46,7 @@ let QUESTIONS = [{
     option2: "Hannibal",
     option3: "Cicero",
     option4: "Spartacus",
-    correctAnswer: "Hannibal"
+    correctAnswer: "Hannibal",
     correctOption: 2
 },
 
@@ -56,7 +56,7 @@ let QUESTIONS = [{
     option2: "Iran",
     option3: "Georgia",
     option4: "Turkey",
-    correctAnswer: "Turkey"
+    correctAnswer: "Turkey",
     correctOption: 4
 },
 
@@ -66,7 +66,7 @@ let QUESTIONS = [{
     option2: "Suleiman the Magnificent",
     option3: "Sultan Mehmed II",
     option4: "Beyazit II",
-    correctAnswer: "Sultan Mehmed II"
+    correctAnswer: "Sultan Mehmed II",
     correctOption: 3
 },
 ]
@@ -84,7 +84,10 @@ let maxScore = document.getElementById("max-score");
 
 let questionArea = document.getElementById("question-area");
 let questionInnerText = document.getElementById("question");
-let answers = document.getElementsByClassName("answers")
+
+nodeItem = nodeList.item(index)
+let answers = document.getElementsByClassName("answers");
+for (let i = 0; i < answers.length; i++)
 
 let answerOne = document.getElementById("option1");
 let answerTwo = document.getElementById("option2");
@@ -196,13 +199,13 @@ function onUserSubmit(event) {
 function displayCorrectOption(currentQuestion) {
     let correctOption = currentQuestion.correctOption
     if (correctOption == 4) {
-        answerFour.classList.add("correct-option")
+        answerFour.classList.add("correct-option");
     } else if (correctOption == 3) {
-        answerThree.classList.add("correct-option")
+        answerThree.classList.add("correct-option");
     } else if (correctOption == 2) {
-        answerTwo.classList.add("correct-option")
+        answerTwo.classList.add("correct-option");
     } else (correctOption == 1) {
-        answerOne.classList.add("correct-option")
+        answerOne.classList.add("correct-option");
     }
 }
 
