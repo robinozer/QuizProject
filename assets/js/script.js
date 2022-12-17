@@ -79,13 +79,10 @@ let nextQuestion = document.getElementById("next");
 let restartQuiz = document.getElementById("restart");
 
 let scoreArea = document.getElementById("score-area");
-let userScore = document.getElementById("user-score");
 let maxScore = document.getElementById("max-score");
 
 let questionArea = document.getElementById("question-area");
 let questionInnerText = document.getElementById("question");
-
-
 let answers = document.getElementsByClassName("answers");
 for (let i = 0; i < answers.length; i++)
 
@@ -102,6 +99,9 @@ let score = 0;
 let questionIndex = 0;
 let currentQuestion = 0;
 let userAnswer = null;
+
+let correctAnswer;
+let userScore = document.getElementById("user-score").innerText
 
 
 /**
@@ -166,7 +166,7 @@ function toggleOptions(disableOptions) {
 
 /**
 1. When user clicks an answer option, 
-    the clicked option stays green until changed or submitted
+    the clicked option stays red until changed or submitted
 2. user´s answer stored in variable userAnswer
 **/
 function onUserSelection(event) {
@@ -186,14 +186,21 @@ function clearSelectionOfOptions() {
 1. Compare the value of the submitted answer to correctAnswer
 2. If answer is correct, alert user and increment userScore with 1
 3. If else, alert user
-4. Show next button
+4. Next button shows up when user clicks Submit button
 **/
-function onUserSubmit(event) {
+function onUserSubmit(event){
     toggleOptions(true);
     toggleNextButton(false);
 
     let currentQuestion = QUESTIONS[questionIndex];
     displayCorrectOption(currentQuestion)
+    console.log(userAnswer); 
+    console.log(correctAnswer);
+
+    if (userAnswer == correctAnswer) {
+        console.log("correct answer")
+        incrementScore()
+    }
 }
 
 function displayCorrectOption(currentQuestion) {
@@ -207,11 +214,14 @@ function displayCorrectOption(currentQuestion) {
     } else if (correctOption == 1) {
         answerOne.classList.add("correct-option");
     }
+
+    correctAnswer = currentQuestion.correctAnswer;
 }
 
 function incrementScore() {
-    let userScore = document.getElementById("user-score").innerText
-    document.getElementById("user-score").innerText = userScore++;
+    console.log(userScore);
+    userScore++;
+    userScore.innerText = ;
 }
 
 /**
@@ -222,18 +232,21 @@ function incrementScore() {
 **/
 function onRestartQuiz() {
     startQuiz.classList.add("hide");
-    restartQuiz.classList.add("hide");
+    restartQuiz.classList.remove("hide");
     questionArea.classList.remove("hide");
+    nextQuestion.classList.remove("hide");
 }
 
 /**
-1. Next button shows up after user clicks Submit button
+1. 
 2. Load next set of question and answer from question Index
 3. When quiz has run through all questions, next button is hidden
 **/
 function onUserClickNextButton() {
     questionIndex++;
     displayQuestion();
+
+
 }
 
 window.addEventListener('DOMContentLoaded', initializeQuiz);
