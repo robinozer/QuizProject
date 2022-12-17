@@ -85,14 +85,14 @@ let maxScore = document.getElementById("max-score");
 let questionArea = document.getElementById("question-area");
 let questionInnerText = document.getElementById("question");
 
-nodeItem = nodeList.item(index)
+
 let answers = document.getElementsByClassName("answers");
 for (let i = 0; i < answers.length; i++)
 
-let answerOne = document.getElementById("option1");
-let answerTwo = document.getElementById("option2");
-let answerThree = document.getElementById("option3");
-let answerFour = document.getElementById("option4");
+var answerOne = document.getElementById("option1");
+var answerTwo = document.getElementById("option2");
+var answerThree = document.getElementById("option3");
+var answerFour = document.getElementById("option4");
 
 let resultAnswer = document.getElementById("result-answer");
 let correctAnswerAlert = document.getElementById("correct");
@@ -204,7 +204,7 @@ function displayCorrectOption(currentQuestion) {
         answerThree.classList.add("correct-option");
     } else if (correctOption == 2) {
         answerTwo.classList.add("correct-option");
-    } else (correctOption == 1) {
+    } else if (correctOption == 1) {
         answerOne.classList.add("correct-option");
     }
 }
