@@ -163,6 +163,9 @@ function displaySelectionAsIncorrect() {
     userSelection.classList.remove("incorrect-option");
 }
 
+function clearIncorrectOption();
+let userSelection = document.getElementsByClassName("incorrect-option")
+
 function incrementScore() {
     console.log(userScore);
     userScore++;
