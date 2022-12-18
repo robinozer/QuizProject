@@ -163,13 +163,17 @@ function displaySelectionAsIncorrect() {
     userSelection.classList.remove("incorrect-option");
 }
 
-function clearIncorrectOption();
+function clearIncorrectOption() {
 let userSelection = document.getElementsByClassName("incorrect-option")
+if (userSelection.length > 0) {
+    userSelection[0].classList.remove("incorrect-option")
+}
+}
 
 function incrementScore() {
-    console.log(userScore);
-    userScore++;
-    userScore = `${userScore}`;
+    let userScore = parseInt(document.getElementById("user-score").innerText);
+    userScore = userScore + 1;
+    document.getElementById("user-score").innerText = userScore;
 }
 
 /**
