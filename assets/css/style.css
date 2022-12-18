@@ -35,8 +35,13 @@ body {
     border-radius: 15px;
 }
 
+#question {
+    padding-bottom: 3%;
+}
+
 #score-area {
     color: #c6093b;
+    padding: 4%;
 }
 
 .button {

@@ -28,6 +28,8 @@ let userAnswer = null;
 
 let correctAnswer;
 
+let startInstruction = document.getElementById("start-instruction");
+
 
 /**
  * when the page loads
@@ -41,7 +43,8 @@ function initializeQuiz() {
     Array.from(answers).forEach(function(element) {
     element.addEventListener("click", onUserSelection);
     });
-
+ 
+    startInstruction.classList.remove("hide");
 }
 /**  
  1. Hide nav buttons when quiz starts and show question area
@@ -54,6 +57,7 @@ function onStartQuiz(event) {
     nextQuestion.classList.add("hide");
     submitButton.classList.remove("hide");
     scoreArea.classList.remove("hide");
+    startInstruction.classList.add("hide");
     displayQuestion();
 }
 
