@@ -70,7 +70,10 @@ function displayQuestion() {
         correctAnswerAlert.classList.add("hide")
         //display the final score
         // hide the quiz area, show the restart button
+
+        return
     }
+
     let currentQuestion = QUESTIONS[questionIndex];
     questionInnerText.innerText = currentQuestion.question
     answerOne.innerText = currentQuestion.option1
@@ -197,6 +200,7 @@ function onUserClickNextButton() {
     displayQuestion();
     correctAnswerAlert.classList.add("hide")
     incorrectAnswerAlert.classList.add("hide")
+    return
 }
 
-window.addEventListener('DOMContentLoaded', initializeQuiz);
+window.addEventListener("DOMContentLoaded", initializeQuiz);
