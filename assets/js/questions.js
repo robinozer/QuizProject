@@ -1,4 +1,4 @@
-// Create array of quiz questions and answer options
+// Array with quiz questions
 
 const QUESTIONS = [{
     question: "What country has the highest life expectancy?",

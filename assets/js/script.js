@@ -1,6 +1,4 @@
-
 // create variables retrieving the DOM elements 
-
 let startQuiz = document.getElementById("start");
 let submitButton = document.getElementById("submit");
 let nextQuestion = document.getElementById("next");
@@ -29,9 +27,10 @@ let correctAnswer;
 let startInstruction = document.getElementById("start-instruction");
 let quizInstruction = document.getElementById("quiz-instruction");
 
-/**
- * when the page loads
- Upon page load, Main event buttons 
+/*
+ * Add event listeners for main buttons
+ * Show instructions to start quiz
+ * (See DOMContentLoaded at end of file)
  */
 function initializeQuiz() {
     startQuiz.addEventListener("click", onStartQuiz);
@@ -39,26 +38,33 @@ function initializeQuiz() {
     submitButton.addEventListener("click", onUserSubmit);
     nextQuestion.addEventListener("click", onUserClickNextButton);
     Array.from(answers).forEach(function(element) {
-    element.addEventListener("click", onUserSelection);
+        element.addEventListener("click", onUserSelection);
     });
- 
+
     startInstruction.classList.remove("hide");
 }
-/**  
- 1. Hide nav buttons when quiz starts and show question area
- 2. Fetch current question from questions index array
- 3. Set the question span text to question key
- 4. Fetch answer options and set each */
+
+/*
+ * Show main quiz area with questions and score grid
+ * Hide nav buttons (submit and next button),
+ * Hide start instructions and show quiz instructions
+ */
 function onStartQuiz(event) {
     startQuiz.classList.add("hide");
     questionArea.classList.remove("hide");
     nextQuestion.classList.add("hide");
-    submitButton.classList.remove("hide");
     scoreArea.classList.remove("hide");
     startInstruction.classList.add("hide");
     displayQuestion();
     quizInstruction.classList.remove("hide");
 }
+
+
+/*
+ * When all questions have been answered
+ * Display final score and result message,
+ * Hide the quiz area and show the restart button
+ */
 
 function displayQuestion() {
     clearSelectionOfOptions();
@@ -71,12 +77,16 @@ function displayQuestion() {
         restartQuiz.classList.remove("hide");
         incorrectAnswerAlert.classList.add("hide");
         correctAnswerAlert.classList.add("hide");
-        //display the final score
-        // hide the quiz area, show the restart button
 
         return;
     }
 
+/* 
+ * Fetch current question from questions index array,
+ * Set the question span text to question key,
+ * Fetch answer options and set each
+ * Hide submit button
+ */
     let currentQuestion = QUESTIONS[questionIndex];
     questionInnerText.innerText = currentQuestion.question;
     answerOne.innerText = currentQuestion.option1;
@@ -88,7 +98,7 @@ function displayQuestion() {
 
     submitButton.classList.add("hide");
 }
-
+//Hide Next button until answer is submitted.
 function toggleNextButton(hide) {
     if (hide) {
         nextQuestion.classList.add("hide");
@@ -97,6 +107,10 @@ function toggleNextButton(hide) {
     }
 }
 
+/* 
+ * Disables answer options and submit button,
+ * once answer is submitted.
+*/
 function toggleOptions(disableOptions) {
     answerOne.disabled = disableOptions;
     answerTwo.disabled = disableOptions;
@@ -105,11 +119,11 @@ function toggleOptions(disableOptions) {
     submitButton.disabled = disableOptions;
 }
 
-/**
-1. When user clicks an answer option, 
-    the clicked option stays red until changed or submitted
-2. user´s answer stored in variable userAnswer
-**/
+/*
+ * User's answer stored in variable userAnswer.
+ * Once user clicks an answer option, 
+ * the option stays light green until changed or submitted.
+*/
 function onUserSelection(event) {
     userAnswer = event.target.innerText;
     clearSelectionOfOptions();
@@ -117,6 +131,7 @@ function onUserSelection(event) {
     submitButton.classList.remove("hide");
 }
 
+//Clear color marking the chosen answer, correct and incorrect
 function clearSelectionOfOptions() {
     Array.from(answers).forEach(function(element) {
     element.classList.remove("user-selection");
@@ -125,13 +140,14 @@ function clearSelectionOfOptions() {
     clearIncorrectOption();
 }
 
-/**
-1. Compare the value of the submitted answer to correctAnswer
-2. If answer is correct, alert user and increment userScore with 1
-3. If else, alert user
-4. Next button shows up when user clicks Submit button
-5. Restart button appears when all questions in the array have been answered.
-**/
+/*
+ * Compare the value of the submitted answer to correctAnswer
+ * If answer is correct, user score is incremented
+ * and user is alerted with message.
+ * If answer is incorrect, user is alerted with message,
+ * and function for incorrect message called, see below.
+ * Next button shows up when user clicks Submit button
+*/
 function onUserSubmit(event){
     toggleOptions(true);
     toggleNextButton(false);
@@ -148,6 +164,11 @@ function onUserSubmit(event){
     }
 }
 
+/* 
+ * Fetch correct option from array
+ * Set each correct option to corresponding variable
+ * Add css color to the respective correct answer
+ */
 function displayCorrectOption(currentQuestion) {
     let correctOption = currentQuestion.correctOption;
     if (correctOption == 4) {
@@ -163,12 +184,18 @@ function displayCorrectOption(currentQuestion) {
     correctAnswer = currentQuestion.correctAnswer;
 }
 
+/* 
+ * Fetch user´s selected answer
+ * Remove css green color, used for correct answer,
+ * Add css red color used for incorrect option.
+*/
 function displaySelectionAsIncorrect() {
     let userSelection = document.getElementsByClassName("user-selection")[0];
     userSelection.classList.remove("user-selection");
     userSelection.classList.add("incorrect-option");
 }
 
+// Clear red color showing incorrect answer
 function clearIncorrectOption() {
 let userSelection = document.getElementsByClassName("incorrect-option");
 if (userSelection.length > 0) {
@@ -176,28 +203,26 @@ if (userSelection.length > 0) {
 }
 }
 
+/* Fetch inner text of user score
+ * Increment user score by 1
+ * Set inner text of the element to the incremented score
+ */ 
 function incrementScore() {
     let userScore = parseInt(document.getElementById("user-score").innerText);
     userScore = userScore + 1;
     document.getElementById("user-score").innerText = userScore;
 }
 
-/**
-1. Restart button appears when all questions in the array have been answered.
-2. When clicked, the function resets the user score and question index
-3. Displays question area again and hides the other elements,
-
-**/
+// Reloads the page for the user to start quiz again
 function onRestartQuiz() {
     location.reload();
     return false;  
 }
 
-/**
-1. 
-2. Load next set of question and answer from question Index
-3. When quiz has run through all questions, next button is hidden
-**/
+/* 
+ * Load next set of question and answer from question index
+ * Hide quiz instructions after first question
+ */
 function onUserClickNextButton() {
     questionIndex++;
     displayQuestion();
