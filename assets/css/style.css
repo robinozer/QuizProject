@@ -35,6 +35,11 @@ body {
     border-radius: 15px;
 }
 
+#quiz-instruction {
+    font-size: 18px;
+    padding-bottom: 2%;
+}
+
 #question {
     padding-bottom: 3%;
 }

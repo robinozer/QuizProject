@@ -29,7 +29,7 @@ let userAnswer = null;
 let correctAnswer;
 
 let startInstruction = document.getElementById("start-instruction");
-
+let quizInstruction = document.getElementById("quiz-instruction");
 
 /**
  * when the page loads
@@ -59,6 +59,7 @@ function onStartQuiz(event) {
     scoreArea.classList.remove("hide");
     startInstruction.classList.add("hide");
     displayQuestion();
+    quizInstruction.classList.remove("hide");
 }
 
 function displayQuestion() {
@@ -202,6 +203,7 @@ function onRestartQuiz() {
 function onUserClickNextButton() {
     questionIndex++;
     displayQuestion();
+    quizInstruction.classList.add("hide");
     correctAnswerAlert.classList.add("hide")
     incorrectAnswerAlert.classList.add("hide")
     return
