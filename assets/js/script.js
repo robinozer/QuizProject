@@ -72,7 +72,7 @@ function displayQuestion() {
     incorrectAnswerAlert.classList.add("hide")
     CorrectAnswerAlert.classList.add("hide")
         //display the final score
-        // hide the quiz area
+        // hide the quiz area, show the restart button
     }
     let currentQuestion = QUESTIONS[questionIndex];
     questionInnerText.innerText = currentQuestion.question
@@ -82,6 +82,8 @@ function displayQuestion() {
     answerFour.innerText = currentQuestion.option4
     toggleOptions(false);
     toggleNextButton(true);
+
+    submitButton.classList.add("hide")
 }
 
 function toggleNextButton(hide) {
@@ -109,6 +111,7 @@ function onUserSelection(event) {
     userAnswer = event.target.innerText
     clearSelectionOfOptions();
     event.target.classList.add("user-selection");
+    submitButton.classList.remove("hide")
 }
 
 function clearSelectionOfOptions() {
@@ -172,7 +175,7 @@ function incrementScore() {
 **/
 function onRestartQuiz() {
     location.reload();
-    return false;      
+    return false;  
 }
 
 /**
