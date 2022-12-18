@@ -160,13 +160,13 @@ function displayCorrectOption(currentQuestion) {
 function displaySelectionAsIncorrect() {
     let userSelection = document.getElementsByClassName("user-selection")[0];
     userSelection.classList.remove("user-selection");
-    userSelection.classList.remove("incorrect-option");
+    userSelection.classList.add("incorrect-option");
 }
 
 function clearIncorrectOption() {
-let userSelection = document.getElementsByClassName("incorrect-option")
+let userSelection = document.getElementsByClassName("incorrect-option");
 if (userSelection.length > 0) {
-    userSelection[0].classList.remove("incorrect-option")
+    userSelection[0].classList.remove("incorrect-option");
 }
 }
 
