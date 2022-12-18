@@ -19,6 +19,11 @@
     background-color: #008000;
 }
 
+.header-title {
+    color: #f5f5dc;
+    padding: 1.5%;
+}
+
 body {
     background-color: #002F47;
     text-align: center;
