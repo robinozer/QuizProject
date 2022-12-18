@@ -7,7 +7,6 @@ let nextQuestion = document.getElementById("next");
 let restartQuiz = document.getElementById("restart");
 
 let scoreArea = document.getElementById("score-area");
-let maxScore = document.getElementById("max-score");
 
 let questionArea = document.getElementById("question-area");
 let questionInnerText = document.getElementById("question");
@@ -18,7 +17,6 @@ var answerTwo = document.getElementById("option2");
 var answerThree = document.getElementById("option3");
 var answerFour = document.getElementById("option4");
 
-let resultAnswer = document.getElementById("result-answer");
 let correctAnswerAlert = document.getElementById("correct");
 let incorrectAnswerAlert = document.getElementById("incorrect");
 
@@ -71,24 +69,24 @@ function displayQuestion() {
         nextQuestion.classList.add("hide");
         submitButton.classList.add("hide");
         restartQuiz.classList.remove("hide");
-        incorrectAnswerAlert.classList.add("hide")
-        correctAnswerAlert.classList.add("hide")
+        incorrectAnswerAlert.classList.add("hide");
+        correctAnswerAlert.classList.add("hide");
         //display the final score
         // hide the quiz area, show the restart button
 
-        return
+        return;
     }
 
     let currentQuestion = QUESTIONS[questionIndex];
-    questionInnerText.innerText = currentQuestion.question
-    answerOne.innerText = currentQuestion.option1
-    answerTwo.innerText = currentQuestion.option2
-    answerThree.innerText = currentQuestion.option3
-    answerFour.innerText = currentQuestion.option4
+    questionInnerText.innerText = currentQuestion.question;
+    answerOne.innerText = currentQuestion.option1;
+    answerTwo.innerText = currentQuestion.option2;
+    answerThree.innerText = currentQuestion.option3;
+    answerFour.innerText = currentQuestion.option4;
     toggleOptions(false);
     toggleNextButton(true);
 
-    submitButton.classList.add("hide")
+    submitButton.classList.add("hide");
 }
 
 function toggleNextButton(hide) {
@@ -113,10 +111,10 @@ function toggleOptions(disableOptions) {
 2. user´s answer stored in variable userAnswer
 **/
 function onUserSelection(event) {
-    userAnswer = event.target.innerText
+    userAnswer = event.target.innerText;
     clearSelectionOfOptions();
     event.target.classList.add("user-selection");
-    submitButton.classList.remove("hide")
+    submitButton.classList.remove("hide");
 }
 
 function clearSelectionOfOptions() {
@@ -139,19 +137,19 @@ function onUserSubmit(event){
     toggleNextButton(false);
 
     let currentQuestion = QUESTIONS[questionIndex];
-    displayCorrectOption(currentQuestion)
+    displayCorrectOption(currentQuestion);
 
     if (userAnswer == correctAnswer) {
-        correctAnswerAlert.classList.remove("hide")
-        incrementScore()
+        correctAnswerAlert.classList.remove("hide");
+        incrementScore();
     }  else {
-        incorrectAnswerAlert.classList.remove("hide")
+        incorrectAnswerAlert.classList.remove("hide");
         displaySelectionAsIncorrect();
     }
 }
 
 function displayCorrectOption(currentQuestion) {
-    let correctOption = currentQuestion.correctOption
+    let correctOption = currentQuestion.correctOption;
     if (correctOption == 4) {
         answerFour.classList.add("correct-option");
     } else if (correctOption == 3) {
@@ -204,9 +202,9 @@ function onUserClickNextButton() {
     questionIndex++;
     displayQuestion();
     quizInstruction.classList.add("hide");
-    correctAnswerAlert.classList.add("hide")
-    incorrectAnswerAlert.classList.add("hide")
-    return
+    correctAnswerAlert.classList.add("hide");
+    incorrectAnswerAlert.classList.add("hide");
+    return;
 }
 
 window.addEventListener("DOMContentLoaded", initializeQuiz);
