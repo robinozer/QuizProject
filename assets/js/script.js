@@ -12,7 +12,6 @@ let maxScore = document.getElementById("max-score");
 let questionArea = document.getElementById("question-area");
 let questionInnerText = document.getElementById("question");
 let answers = document.getElementsByClassName("answers");
-for (let i = 0; i < answers.length; i++)
 
 var answerOne = document.getElementById("option1");
 var answerTwo = document.getElementById("option2");
