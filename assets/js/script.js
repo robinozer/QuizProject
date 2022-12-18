@@ -22,7 +22,6 @@ let resultAnswer = document.getElementById("result-answer");
 let correctAnswerAlert = document.getElementById("correct");
 let incorrectAnswerAlert = document.getElementById("incorrect");
 
-let score = 0;
 let questionIndex = 0;
 let currentQuestion = 0;
 let userAnswer = null;
@@ -31,8 +30,8 @@ let correctAnswer;
 
 
 /**
- When content is loaded, connected to DOMContentLoaded
- event listeners for buttons
+ * when the page loads
+ Upon page load, Main event buttons 
  */
 function initializeQuiz() {
     startQuiz.addEventListener("click", onStartQuiz);
@@ -63,12 +62,12 @@ function displayQuestion() {
     if (questionIndex == QUESTIONS.length) {
         let finalResult = document.getElementById("final-result");
         finalResult.classList.remove("hide");
-    questionArea.classList.add("hide");
-    nextQuestion.classList.add("hide");
-    submitButton.classList.add("hide");
-    restartQuiz.classList.remove("hide");
-    incorrectAnswerAlert.classList.add("hide")
-    correctAnswerAlert.classList.add("hide")
+        questionArea.classList.add("hide");
+        nextQuestion.classList.add("hide");
+        submitButton.classList.add("hide");
+        restartQuiz.classList.remove("hide");
+        incorrectAnswerAlert.classList.add("hide")
+        correctAnswerAlert.classList.add("hide")
         //display the final score
         // hide the quiz area, show the restart button
     }
@@ -117,6 +116,7 @@ function clearSelectionOfOptions() {
     element.classList.remove("user-selection");
     element.classList.remove("correct-option");
     });
+    clearIncorrectOption();
 }
 
 /**
@@ -132,15 +132,13 @@ function onUserSubmit(event){
 
     let currentQuestion = QUESTIONS[questionIndex];
     displayCorrectOption(currentQuestion)
-    console.log(userAnswer); 
-    console.log(correctAnswer);
 
     if (userAnswer == correctAnswer) {
-        console.log("correct answer")
         correctAnswerAlert.classList.remove("hide")
         incrementScore()
     }  else {
         incorrectAnswerAlert.classList.remove("hide")
+        displaySelectionAsIncorrect();
     }
 }
 
@@ -157,6 +155,12 @@ function displayCorrectOption(currentQuestion) {
     }
 
     correctAnswer = currentQuestion.correctAnswer;
+}
+
+function displaySelectionAsIncorrect() {
+    let userSelection = document.getElementsByClassName("user-selection")[0];
+    userSelection.classList.remove("user-selection");
+    userSelection.classList.remove("incorrect-option");
 }
 
 function incrementScore() {

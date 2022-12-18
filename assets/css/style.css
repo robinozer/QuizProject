@@ -8,11 +8,15 @@
 }
 
 .user-selection {
-    background-color: #e41717;
+    background-color: #7ab66f;
 }
 
 .correct-option {
     background-color: #008000;
+}
+
+.incorrect-option {
+    background-color: #c6093b;
 }
 
 body {
