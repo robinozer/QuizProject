@@ -29,7 +29,6 @@ let currentQuestion = 0;
 let userAnswer = null;
 
 let correctAnswer;
-let userScore = parseInt.document.getElementById("user-score").innerText
 
 
 /**
@@ -71,7 +70,6 @@ function displayQuestion() {
     restartQuiz.classList.remove("hide");
     incorrectAnswerAlert.classList.add("hide")
     correctAnswerAlert.classList.add("hide")
-    return
         //display the final score
         // hide the quiz area, show the restart button
     }
