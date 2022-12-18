@@ -68,6 +68,9 @@ function displayQuestion() {
     questionArea.classList.add("hide");
     nextQuestion.classList.add("hide");
     submitButton.classList.add("hide");
+    restartQuiz.classList.remove("hide");
+    incorrectAnswerAlert.classList.add("hide")
+    CorrectAnswerAlert.classList.add("hide")
         //display the final score
         // hide the quiz area
     }
@@ -168,8 +171,8 @@ function incrementScore() {
 
 **/
 function onRestartQuiz() {
-    startQuiz.classList.add("hide");
-    reStartQuiz.classList.remove("hide");
+    location.reload();
+    return false;      
 }
 
 /**
