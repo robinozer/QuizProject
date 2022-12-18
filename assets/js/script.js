@@ -63,6 +63,11 @@ function onStartQuiz(event) {
 function displayQuestion() {
     clearSelectionOfOptions();
     if (questionIndex == QUESTIONS.length) {
+        let finalResult = document.getElementById("final-result");
+        finalResult.classList.remove("hide");
+    questionArea.classList.add("hide");
+    nextQuestion.classList.add("hide");
+    submitButton.classList.add("hide");
         //display the final score
         // hide the quiz area
     }
