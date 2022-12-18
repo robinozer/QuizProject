@@ -110,7 +110,7 @@ function toggleNextButton(hide) {
 /* 
  * Disables answer options and submit button,
  * once answer is submitted.
-*/
+ */
 function toggleOptions(disableOptions) {
     answerOne.disabled = disableOptions;
     answerTwo.disabled = disableOptions;
@@ -123,7 +123,7 @@ function toggleOptions(disableOptions) {
  * User's answer stored in variable userAnswer.
  * Once user clicks an answer option, 
  * the option stays light green until changed or submitted.
-*/
+ */
 function onUserSelection(event) {
     userAnswer = event.target.innerText;
     clearSelectionOfOptions();
