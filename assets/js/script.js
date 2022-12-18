@@ -133,7 +133,10 @@ function onUserSubmit(event){
 
     if (userAnswer == correctAnswer) {
         console.log("correct answer")
+        correctAnswerAlert.classList.remove("hide")
         incrementScore()
+    }  else {
+        incorrectAnswerAlert.classList.remove("hide")
     }
 }
 
@@ -177,8 +180,8 @@ function onRestartQuiz() {
 function onUserClickNextButton() {
     questionIndex++;
     displayQuestion();
-
-
+    correctAnswerAlert.classList.add("hide")
+    incorrectAnswerAlert.classList.add("hide")
 }
 
 window.addEventListener('DOMContentLoaded', initializeQuiz);
