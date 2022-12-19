@@ -97,7 +97,7 @@ Balsamiq was used to visualize the html structure and get an idea of which funct
 - JavaScript
   - No errors were found when passing script.js through the official [JSHint Validator](https://jshint.com/).
   - According to JSHint, currentQuestion is an unused variable. However, the variable is defined in script.js and used in several places of the file.
-  - Both questions.js and script.js files were validated together, as validating them separately made JSHint show the variable QUESTIONS in the questions.js file as unused, which is not the case.s
+  - Both questions.js and script.js files were validated together, as validating them separately made JSHint show the variable QUESTIONS in the questions.js file as unused, which is not the case.
 
 ### 8.2 Performance testing ###
 [PageSpeed Insights](https://pagespeed.web.dev), part of Chrome Dev tools was used to measure performance, availability, best practice and SEO (respectively).
@@ -110,27 +110,87 @@ Balsamiq was used to visualize the html structure and get an idea of which funct
 ![SCREENSHOT OF LIGHTHOUSE MOBILE](media/mobile-performance.png)
 
 ### 8.3 Test cases ###
+- Family and friends tested the deployed website on various screen sizes and devices.
 
-#### Start button ####
+#### Quiz website ####
 
-Expected outcome: displays quiz interface, with question, answer options and instructions
+Testing performed: enter website URL to modern browser and click Enter.
+
+Expected outcome: displays website with header, quiz UI with Start button and instruction.
+
+Result: as expected.
+
+Test passed.
+
+#### Start quiz ####
 
 Testing performed: click Start button.
 
-Result: displays quiz interface, with question, answer options and instructions
+Expected outcome: displays quiz interface, with question, four answer options, instructions and user score.
+
+Result: as expected.
 
 Test passed.
 
-#### Submit answer option ####
+#### Choose answer option ####
 
-Expected outcome: user should be able to select and reselect answer options before clicking Submit
+Testing performed: click on an answer option.
 
-Testing performed: click Submit button.
+Expected outcome: user's choice marked in light green, user should be able to reselect answer options.
 
-Result: user´s answer option is recorded
+Result: as expected.
 
 Test passed.
 
+#### Submit answer ####
+
+Testing performed: click on Submit button.
+
+Expected outcome: score increments if answer is correct, message alert appears, the answer buttons and Submit button become disabled, Next question appears.
+
+Result: as expected.
+
+Test passed.
+
+#### Assess answer ####
+
+Testing performed: choose wrong answer option and click Submit button.
+
+Expected outcome: user should see their choice marked in red, and the correct answer in green.
+
+Result: as expected.
+
+Test passed.
+
+#### Score count ####
+
+Testing performed: choose correct answer option and click Submit.
+
+Expected outcome: user score should increment with 1.
+
+Result: as expected.
+
+Test passed.
+
+#### Quiz end ####
+
+Testing performed: answer all 7 questions.
+
+Expected outcome: question interface disappears, message alert appears with final score, and Play again button appears.
+
+Result: as expected.
+
+Test passed.
+
+#### Play again ####
+
+Testing performed: click Play again button.
+
+Expected outcome: page reloads and user is directed to the Start page.
+
+Result: as expected.
+
+Test passed.
 
 ### 8.4 Fixed bugs ###
 
