@@ -33,15 +33,15 @@ let quizInstruction = document.getElementById("quiz-instruction");
  * (See DOMContentLoaded at end of file)
  */
 function initializeQuiz() {
-    startQuiz.addEventListener("click", onStartQuiz);
-    restartQuiz.addEventListener("click", onRestartQuiz);
-    submitButton.addEventListener("click", onUserSubmit);
-    nextQuestion.addEventListener("click", onUserClickNextButton);
-    Array.from(answers).forEach(function(element) {
-        element.addEventListener("click", onUserSelection);
-    });
+  startQuiz.addEventListener("click", onStartQuiz);
+  restartQuiz.addEventListener("click", onRestartQuiz);
+  submitButton.addEventListener("click", onUserSubmit);
+  nextQuestion.addEventListener("click", onUserClickNextButton);
+  Array.from(answers).forEach(function(element) {
+    element.addEventListener("click", onUserSelection);
+  });
 
-    startInstruction.classList.remove("hide");
+  startInstruction.classList.remove("hide");
 }
 
 /*
@@ -50,13 +50,13 @@ function initializeQuiz() {
  * Hide start instructions and show quiz instructions
  */
 function onStartQuiz(event) {
-    startQuiz.classList.add("hide");
-    questionArea.classList.remove("hide");
-    nextQuestion.classList.add("hide");
-    scoreArea.classList.remove("hide");
-    startInstruction.classList.add("hide");
-    displayQuestion();
-    quizInstruction.classList.remove("hide");
+  startQuiz.classList.add("hide");
+  questionArea.classList.remove("hide");
+  nextQuestion.classList.add("hide");
+  scoreArea.classList.remove("hide");
+  startInstruction.classList.add("hide");
+  displayQuestion();
+  quizInstruction.classList.remove("hide");
 }
 
 
@@ -67,44 +67,44 @@ function onStartQuiz(event) {
  */
 
 function displayQuestion() {
-    clearSelectionOfOptions();
-    if (questionIndex == QUESTIONS.length) {
-        let finalResult = document.getElementById("final-result");
-        finalResult.classList.remove("hide");
-        questionArea.classList.add("hide");
-        nextQuestion.classList.add("hide");
-        submitButton.classList.add("hide");
-        restartQuiz.classList.remove("hide");
-        incorrectAnswerAlert.classList.add("hide");
-        correctAnswerAlert.classList.add("hide");
-
-        return;
-    }
-
-/* 
- * Fetch current question from questions index array,
- * Set the question span text to question key,
- * Fetch answer options and set each
- * Hide submit button
- */
-    let currentQuestion = QUESTIONS[questionIndex];
-    questionInnerText.innerText = currentQuestion.question;
-    answerOne.innerText = currentQuestion.option1;
-    answerTwo.innerText = currentQuestion.option2;
-    answerThree.innerText = currentQuestion.option3;
-    answerFour.innerText = currentQuestion.option4;
-    toggleOptions(false);
-    toggleNextButton(true);
-
+  clearSelectionOfOptions();
+  if (questionIndex == QUESTIONS.length) {
+    let finalResult = document.getElementById("final-result");
+    finalResult.classList.remove("hide");
+    questionArea.classList.add("hide");
+    nextQuestion.classList.add("hide");
     submitButton.classList.add("hide");
+    restartQuiz.classList.remove("hide");
+    incorrectAnswerAlert.classList.add("hide");
+    correctAnswerAlert.classList.add("hide");
+
+    return;
+  }
+
+  /* 
+   * Fetch current question from questions index array,
+   * Set the question span text to question key,
+   * Fetch answer options and set each
+   * Hide submit button
+   */
+  let currentQuestion = QUESTIONS[questionIndex];
+  questionInnerText.innerText = currentQuestion.question;
+  answerOne.innerText = currentQuestion.option1;
+  answerTwo.innerText = currentQuestion.option2;
+  answerThree.innerText = currentQuestion.option3;
+  answerFour.innerText = currentQuestion.option4;
+  toggleOptions(false);
+  toggleNextButton(true);
+
+  submitButton.classList.add("hide");
 }
 //Hide Next button until answer is submitted.
 function toggleNextButton(hide) {
-    if (hide) {
-        nextQuestion.classList.add("hide");
-    } else {
-        nextQuestion.classList.remove("hide");
-    }
+  if (hide) {
+    nextQuestion.classList.add("hide");
+  } else {
+    nextQuestion.classList.remove("hide");
+  }
 }
 
 /* 
@@ -112,11 +112,11 @@ function toggleNextButton(hide) {
  * once answer is submitted.
  */
 function toggleOptions(disableOptions) {
-    answerOne.disabled = disableOptions;
-    answerTwo.disabled = disableOptions;
-    answerThree.disabled = disableOptions;
-    answerFour.disabled = disableOptions;
-    submitButton.disabled = disableOptions;
+  answerOne.disabled = disableOptions;
+  answerTwo.disabled = disableOptions;
+  answerThree.disabled = disableOptions;
+  answerFour.disabled = disableOptions;
+  submitButton.disabled = disableOptions;
 }
 
 /*
@@ -125,19 +125,19 @@ function toggleOptions(disableOptions) {
  * the option stays light green until changed or submitted.
  */
 function onUserSelection(event) {
-    userAnswer = event.target.innerText;
-    clearSelectionOfOptions();
-    event.target.classList.add("user-selection");
-    submitButton.classList.remove("hide");
+  userAnswer = event.target.innerText;
+  clearSelectionOfOptions();
+  event.target.classList.add("user-selection");
+  submitButton.classList.remove("hide");
 }
 
 //Clear color marking the chosen answer, correct and incorrect
 function clearSelectionOfOptions() {
-    Array.from(answers).forEach(function(element) {
+  Array.from(answers).forEach(function(element) {
     element.classList.remove("user-selection");
     element.classList.remove("correct-option");
-    });
-    clearIncorrectOption();
+  });
+  clearIncorrectOption();
 }
 
 /*
@@ -147,21 +147,21 @@ function clearSelectionOfOptions() {
  * If answer is incorrect, user is alerted with message,
  * and function for incorrect message called, see below.
  * Next button shows up when user clicks Submit button
-*/
-function onUserSubmit(event){
-    toggleOptions(true);
-    toggleNextButton(false);
+ */
+function onUserSubmit(event) {
+  toggleOptions(true);
+  toggleNextButton(false);
 
-    let currentQuestion = QUESTIONS[questionIndex];
-    displayCorrectOption(currentQuestion);
+  let currentQuestion = QUESTIONS[questionIndex];
+  displayCorrectOption(currentQuestion);
 
-    if (userAnswer == correctAnswer) {
-        correctAnswerAlert.classList.remove("hide");
-        incrementScore();
-    }  else {
-        incorrectAnswerAlert.classList.remove("hide");
-        displaySelectionAsIncorrect();
-    }
+  if (userAnswer == correctAnswer) {
+    correctAnswerAlert.classList.remove("hide");
+    incrementScore();
+  } else {
+    incorrectAnswerAlert.classList.remove("hide");
+    displaySelectionAsIncorrect();
+  }
 }
 
 /* 
@@ -170,53 +170,53 @@ function onUserSubmit(event){
  * Add css color to the respective correct answer
  */
 function displayCorrectOption(currentQuestion) {
-    let correctOption = currentQuestion.correctOption;
-    if (correctOption == 4) {
-        answerFour.classList.add("correct-option");
-    } else if (correctOption == 3) {
-        answerThree.classList.add("correct-option");
-    } else if (correctOption == 2) {
-        answerTwo.classList.add("correct-option");
-    } else if (correctOption == 1) {
-        answerOne.classList.add("correct-option");
-    }
+  let correctOption = currentQuestion.correctOption;
+  if (correctOption == 4) {
+    answerFour.classList.add("correct-option");
+  } else if (correctOption == 3) {
+    answerThree.classList.add("correct-option");
+  } else if (correctOption == 2) {
+    answerTwo.classList.add("correct-option");
+  } else if (correctOption == 1) {
+    answerOne.classList.add("correct-option");
+  }
 
-    correctAnswer = currentQuestion.correctAnswer;
+  correctAnswer = currentQuestion.correctAnswer;
 }
 
 /* 
  * Fetch user´s selected answer
  * Remove css green color, used for correct answer,
  * Add css red color used for incorrect option.
-*/
+ */
 function displaySelectionAsIncorrect() {
-    let userSelection = document.getElementsByClassName("user-selection")[0];
-    userSelection.classList.remove("user-selection");
-    userSelection.classList.add("incorrect-option");
+  let userSelection = document.getElementsByClassName("user-selection")[0];
+  userSelection.classList.remove("user-selection");
+  userSelection.classList.add("incorrect-option");
 }
 
 // Clear red color showing incorrect answer
 function clearIncorrectOption() {
-let userSelection = document.getElementsByClassName("incorrect-option");
-if (userSelection.length > 0) {
+  let userSelection = document.getElementsByClassName("incorrect-option");
+  if (userSelection.length > 0) {
     userSelection[0].classList.remove("incorrect-option");
-}
+  }
 }
 
 /* Fetch inner text of user score
  * Increment user score by 1
  * Set inner text of the element to the incremented score
- */ 
+ */
 function incrementScore() {
-    let userScore = parseInt(document.getElementById("user-score").innerText);
-    userScore = userScore + 1;
-    document.getElementById("user-score").innerText = userScore;
+  let userScore = parseInt(document.getElementById("user-score").innerText);
+  userScore = userScore + 1;
+  document.getElementById("user-score").innerText = userScore;
 }
 
 // Reloads the page for the user to start quiz again
 function onRestartQuiz() {
-    location.reload();
-    return false;  
+  location.reload();
+  return false;
 }
 
 /* 
@@ -224,12 +224,12 @@ function onRestartQuiz() {
  * Hide quiz instructions after first question
  */
 function onUserClickNextButton() {
-    questionIndex++;
-    displayQuestion();
-    quizInstruction.classList.add("hide");
-    correctAnswerAlert.classList.add("hide");
-    incorrectAnswerAlert.classList.add("hide");
-    return;
+  questionIndex++;
+  displayQuestion();
+  quizInstruction.classList.add("hide");
+  correctAnswerAlert.classList.add("hide");
+  incorrectAnswerAlert.classList.add("hide");
+  return;
 }
 
 window.addEventListener("DOMContentLoaded", initializeQuiz);
