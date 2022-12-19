@@ -1,7 +1,9 @@
 # History and Geography Quiz #
 
 ## 1. Purpose of the project ##
-This is a standalone quiz with multiple choice questions for anyone interested in history and geography trivia. The quiz can be used for educational as well as recreational purposes, and spans a wide variety of subjects in order to trigger the curiosity of participants. To introduce a competitive element, the quiz also has a score counter and displays the final score at the end. The purpose of this project is to use HTML, CSS and JavaScript to create a website with interactive elements, in this case a quiz game. The website is responsive on mobile, computer and tablet size screens.
+This is a standalone quiz with multiple choice questions for anyone interested in history and geography trivia. The quiz can be used for educational as well as recreational purposes, and spans a wide variety of subjects in order to trigger the curiosity of participants. To introduce a competitive element, the quiz also has a score counter and displays the final score at the end. 
+
+The purpose of this project is to use HTML, CSS and JavaScript to create a website with interactive elements, in this case a quiz game. The website is responsive on mobile, computer and tablet size screens.
 
 ![SCREENSHOT OF RESPONSIVE SCREENS](media/screenshot-responsive.png)
 
@@ -11,22 +13,23 @@ This is a standalone quiz with multiple choice questions for anyone interested i
 - As a user, I want to see the quiz question and the answer options.
 - As a user, I would like to select and re-select my answer option before submitting it.
 - As a user, I want to see if my submitted answer choice was correct or not before continuing with the next question.
-- As a user, I want to see my current score.
+- As a user, I want to submit my answer.
+- As a user, I want to see my current score at any point in the game.
 - As a user, I want to see my final score and have the choice to restart the quiz.
 
 ## 3. Features ##
 
 __Header__
--	The header contains the quiz title, and is present throghout the quiz.
+-	The header contains the quiz title, and is present throughout the quiz.
 
 ![SCREENSHOT OF HEADER](media/screenshot-header.png)
 
-__Start Page__
+__Start__
 -	This is the first thing a user sees when clicking on the website link. The design is minimalistic to reduce distractions, and there is a short instruction in the quiz area on how to start the quiz.
 
 ![SCREENSHOT OF START PAGE](media/screenshot-start-page.png)
 
-__Quiz Interface:__
+__Quiz Interface with question and answers__
 
 -	Once the start button has been clicked, the user sees the first question, the four answer options, the score counter and a short instruction on how to answer the question. The instruction disappears after the first question.
 - All buttons in the quiz turn light green when hovered over, to increase UX.
@@ -48,14 +51,14 @@ __Quiz Interface:__
 
 __Final Result__
 
-- When all questions have been answered, an encouraging message is displayed along with the user's final score. A Play again button appears to restart the quiz, this returns the user to the start page.
+- When all questions have been answered, an encouraging message is displayed along with the user's final score. A Play again button appears to restart the quiz. This reloads the page returns the user to the start.
 
 ![SCREENSHOT OF QUiZ END](media/screenshot-quiz-end.png)
 
 ## 4. Future features ##
 
-- An endless amount of features could be added to the quiz: a wider variety of quiz topics, a larger library of questions and answers, and different question types such as open questions, picture ad audio questions and questions with multiple correct answers.
-- The website could also include quizzes of varying difficulty levels to challenge users of varying level.
+- An endless amount of features could be added to the quiz: among others a wider variety of quiz topics, a larger library of questions and answers, and different question types such as open questions, picture and audio questions and questions with multiple correct answers.
+- The website could also include quizzes of varying difficulty levels to challenge users of different skills.
 
 ## 5. Color scheme and typography ##
 - The color scheme for the website was first created manually, and then adjusted with the help of [Coolors](https://coolors.co/). The colors have a high amount of contrast to increase legibility and visibility and minimize distractions. The green and red were used specifically as they are commonly associated with correct and incorrect answers.
@@ -76,10 +79,7 @@ Balsamiq was used to visualize the html structure and get an idea of which funct
 - [GitPod](https://gitpod.io/) was used to write, edit and commit the code, while [GitHub](https://github.com/) was used for deployment, storage and version control.
 - [Am I Responsive](https://ui.dev/amiresponsive) was used to create screenshot of website on different screen sizes.
 - The font used on the website was imported from [Google Fonts](https://fonts.google.com/).
-- [FavIcon](https://favicon.io/) was used for the website´s icon.
-- W3C validator was used for finding errors in the code throughout the project and improving quality.
-- Chrome Dev tools was used for increasing responsivity, testing CSS rules and exploring ways of managing bugs in the code.
-- PageSpeed Insights of web.dev (part of Chrome Dev tools) was used to measure site performance, accessibility, SEO and best practice.
+- [FavIcon](https://favicon.io/) was used for the website's icon.
 
 ## 8. Testing ##
 
@@ -114,83 +114,83 @@ Balsamiq was used to visualize the html structure and get an idea of which funct
 
 #### Quiz website ####
 
-Testing performed: enter website URL to modern browser and click Enter.
+- Testing performed: enter website URL to modern browser and click Enter.
 
-Expected outcome: displays website with header, quiz UI with Start button and instruction.
+- Expected outcome: displays website with header, quiz UI with Start button and instruction.
 
-Result: as expected.
+- Result: as expected.
 
-Test passed.
+- Test passed.
 
 #### Start quiz ####
 
-Testing performed: click Start button.
+- Testing performed: click Start button.
 
-Expected outcome: displays quiz interface, with question, four answer options, instructions and user score.
+- Expected outcome: displays quiz interface, with question, four answer options, instructions and user score.
 
-Result: as expected.
+- Result: as expected.
 
-Test passed.
+- Test passed.
 
 #### Choose answer option ####
 
-Testing performed: click on an answer option.
+- Testing performed: click on an answer option.
 
-Expected outcome: user's choice marked in light green, user should be able to reselect answer options.
+- Expected outcome: user's choice marked in light green, user should be able to reselect answer options.
 
-Result: as expected.
+- Result: as expected.
 
-Test passed.
+- Test passed.
 
 #### Submit answer ####
 
-Testing performed: click on Submit button.
+- Testing performed: click on Submit button.
 
-Expected outcome: score increments if answer is correct, message alert appears, the answer buttons and Submit button become disabled, Next question appears.
+- Expected outcome: score increments if answer is correct, message alert appears, the answer buttons and Submit button become disabled, Next question appears.
 
-Result: as expected.
+- Result: as expected.
 
-Test passed.
+- Test passed.
 
 #### Assess answer ####
 
-Testing performed: choose wrong answer option and click Submit button.
+- Testing performed: choose wrong answer option and click Submit button.
 
-Expected outcome: user should see their choice marked in red, and the correct answer in green.
+- Expected outcome: user should see their choice marked in red, and the correct answer in green, along with a message alerting user of incorrect answer.
 
-Result: as expected.
+- Result: as expected.
 
-Test passed.
+- Test passed.
 
 #### Score count ####
 
-Testing performed: choose correct answer option and click Submit.
+- Testing performed: choose correct answer option and click Submit.
 
-Expected outcome: user score should increment with 1.
+- Expected outcome: user score should increment with 1.
 
-Result: as expected.
+- Result: as expected.
 
-Test passed.
+- Test passed.
 
 #### Quiz end ####
 
-Testing performed: answer all 7 questions.
+- Testing performed: answer all 7 questions.
 
-Expected outcome: question interface disappears, message alert appears with final score, and Play again button appears.
+- Expected outcome: question interface disappears, message alert appears with final score, and Play again button appears.
 
-Result: as expected.
+- Result: as expected.
 
-Test passed.
+- Test passed.
 
 #### Play again ####
 
-Testing performed: click Play again button.
+- Testing performed: click Play again button.
 
-Expected outcome: page reloads and user is directed to the Start page.
+- Expected outcome: page reloads and user is directed to the Start page.
 
-Result: as expected.
+- Result: as expected.
 
-Test passed.
+- Test passed.
 
 ### 8.4 Fixed bugs ###
 
@@ -207,7 +207,7 @@ The GitHub repository was created using the Code Institute GitPod template:
 https://github.com/Code-Institute-Org/gitpod-full-template
 - Click the link to get to the template. Click “Use this template”.
 - Enter repository name, QuizProject, make the repository is public and click “Create repository from template”.
-- Click the green GitPod button, wait a moment for the workspace to open. All work was commited in GitPod.
+- Click the green GitPod button, wait a moment for the workspace to open. All work was committed in GitPod.
 
 - The repository can be accessed through following link: https://github.com/robinozer/QuizProject.git 
 
